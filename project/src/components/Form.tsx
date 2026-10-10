@@ -1,9 +1,4 @@
-import type {
-  InputHTMLAttributes,
-  SelectHTMLAttributes,
-  TextareaHTMLAttributes,
-  ReactNode,
-} from "react";
+import type { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes, ReactNode } from 'react';
 
 interface FieldWrapperProps {
   label: string;
@@ -13,13 +8,7 @@ interface FieldWrapperProps {
   hint?: string;
 }
 
-export function FieldWrapper({
-  label,
-  error,
-  required,
-  children,
-  hint,
-}: FieldWrapperProps) {
+export function FieldWrapper({ label, error, required, children, hint }: FieldWrapperProps) {
   return (
     <div>
       <label className="block text-sm font-medium text-gray-300 mb-1.5">
@@ -34,16 +23,16 @@ export function FieldWrapper({
 }
 
 const baseInput =
-  "w-full px-3 py-2 rounded-lg bg-forest-900/60 border text-sm text-gray-200 placeholder-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald2-500/30";
+  'w-full px-3 py-2 rounded-lg bg-forest-900/60 border text-sm text-gray-200 placeholder-gray-500 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald2-500/30';
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
 }
 
-export function TextInput({ error, className = "", ...props }: TextInputProps) {
+export function TextInput({ error, className = '', ...props }: TextInputProps) {
   return (
     <input
-      className={`${baseInput} ${error ? "border-red-500/50" : "border-forest-600"} focus:border-emerald2-500 ${className}`}
+      className={`${baseInput} ${error ? 'border-red-500/50' : 'border-forest-600'} focus:border-emerald2-500 ${className}`}
       {...props}
     />
   );
@@ -54,15 +43,10 @@ interface SelectInputProps extends SelectHTMLAttributes<HTMLSelectElement> {
   children: ReactNode;
 }
 
-export function SelectInput({
-  error,
-  className = "",
-  children,
-  ...props
-}: SelectInputProps) {
+export function SelectInput({ error, className = '', children, ...props }: SelectInputProps) {
   return (
     <select
-      className={`${baseInput} ${error ? "border-red-500/50" : "border-forest-600"} focus:border-emerald2-500 ${className}`}
+      className={`${baseInput} ${error ? 'border-red-500/50' : 'border-forest-600'} focus:border-emerald2-500 ${className}`}
       {...props}
     >
       {children}
@@ -74,10 +58,10 @@ interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
 }
 
-export function TextArea({ error, className = "", ...props }: TextAreaProps) {
+export function TextArea({ error, className = '', ...props }: TextAreaProps) {
   return (
     <textarea
-      className={`${baseInput} ${error ? "border-red-500/50" : "border-forest-600"} focus:border-emerald2-500 ${className}`}
+      className={`${baseInput} ${error ? 'border-red-500/50' : 'border-forest-600'} focus:border-emerald2-500 ${className}`}
       {...props}
     />
   );
@@ -89,9 +73,5 @@ interface FormRowProps {
 }
 
 export function FormRow({ children, cols = 2 }: FormRowProps) {
-  return (
-    <div className={`grid grid-cols-1 md:grid-cols-${cols} gap-4`}>
-      {children}
-    </div>
-  );
+  return <div className={`grid grid-cols-1 md:grid-cols-${cols} gap-4`}>{children}</div>;
 }
